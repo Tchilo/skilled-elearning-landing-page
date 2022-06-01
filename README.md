@@ -30,7 +30,7 @@ npm run dev
 ``` 
 7. start building!
 
-8. The http://localhost:1234/ server will automatically open in your browser, if it doesn't hold down the ctrl key then click the link in your terminal to open it in your browser. happy coding!! 🌈
+8. The http://localhost:1234/ server will automatically open in your browser, if it doesn't hold down the ctrl key then click the link in your terminal to open it in your browser. happy coding!! 
 
 ## Take note:
 > When you are in development/building mode you can use 
