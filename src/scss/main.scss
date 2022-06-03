@@ -1,5 +1,6 @@
 @use 'colors' as *;
 @use 'reset' as *;
+@use 'breakpoints' as *;
 
 
 @mixin button($color) {
@@ -42,6 +43,7 @@ body {
     line-height: 25px;
     letter-spacing: 0px;
   }
+  
 }
 
 .header {
