@@ -1,21 +1,117 @@
 @use 'colors' as *;
 
-@mixin button($color){
-  background:$color;
+
+@mixin button($color) {
+  background: $color;
   color: $white;
-  padding:9px 24px 11px ;
+  padding: 9px 24px 11px;
   border-radius: 28px;
   border: none;
 }
 
-.header{
+@mixin paragraph {
+  color: $card-p;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
+body {
+  background: $background-c;
+  display:grid;
+  grid-template-columns: 1fr;
+
+}
+
+.header {
 
   nav {
     display: flex;
-    
   }
 
   button {
-   @include button($heading-color);
+    @include button($heading-color);
+
+    &:hover {
+      background-color: $button1-hover;
+    }
+
+  }
+
+  h1 {
+    color: $heading-color;
+    // font-family: Plus Jakarta Sans;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 50px;
+    text-align: left;
+
+  }
+
+  .started {
+    @include button($gradient-bg);
+    border-radius: 31.5px;
+
+    &:hover {
+      @include button($button2-hover);
+    }
+  }
+
+  .call-to-action-text {
+    border-radius: 10px;
+    height: 120px;
+    width: 343px;
+    background: $gradient-bg;
+  }
+
+  .opening-p {
+    @include paragraph;
+  }
+}
+
+.main {
+  ul {
+    list-style: none;
+
+    li {
+      padding: 28px;
+      background: $white;
+      height: 259px;
+      width: 343px;
+      border-radius: 10px;
+
+      h2 {
+        color: $card-h2;
+      }
+
+      p {
+        @include paragraph;
+      }
+
+      span {
+        color: $get-started-text;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $heading-color;
+  height: 120px;
+  width: 375px;
+  border-radius: 0px;
+  color: $white;
+
+  button {
+    @include button($footer-btn);
+
+    &:hover {
+      @include button($footer-btn-hover);
+    }
+
   }
 }
