@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -50,10 +52,10 @@ body p {
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 body h2 {
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 25px;
@@ -77,7 +79,7 @@ body h2 {
   height: 101px;
   width: 343px;
   color: #13183F;
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 40px;
   font-weight: 800;
   margin: 26px 0;
@@ -99,6 +101,13 @@ body h2 {
   border-radius: 28px;
   border: none;
 }
+.header .image {
+  height: 329.9333496094px;
+  width: 238.7231140137px;
+}
+.header .image img {
+  height: 329.9333496094px;
+}
 .header .call-to-action-text {
   border-radius: 10px;
   color: #fff;
@@ -108,7 +117,7 @@ body h2 {
   background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
 }
 .header .call-to-action-text p {
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 32px;
@@ -116,7 +125,7 @@ body h2 {
 }
 .header .opening-p {
   color: #83869A;
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -139,12 +148,10 @@ body h2 {
 }
 .main ul li h2 {
   color: #13183F;
-  margin-top: 24px;
-  margin-bottom: 16px;
 }
 .main ul li p {
   color: #83869A;
-  font-family: Plus Jakarta Sans;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -162,9 +169,16 @@ body h2 {
 footer {
   background-color: #13183F;
   height: 120px;
-  width: 375px;
+  width: 359px;
   border-radius: 0px;
   color: #fff;
+}
+footer span {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 35px;
+  letter-spacing: 0px;
 }
 footer button {
   background: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
