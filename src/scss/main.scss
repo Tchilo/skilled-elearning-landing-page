@@ -21,8 +21,8 @@
 }
 
 @mixin paragraph {
-  color: $card-p;
   @include font-fam;
+  color: $card-p;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -31,7 +31,13 @@
 
 }
 
-body {
+@mixin nav-footer {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+}
+
+.body {
   background: $background-c;
   display: grid;
   grid-template-columns: 1fr;
@@ -55,12 +61,30 @@ body {
     letter-spacing: 0px;
   }
 
+  @include xl {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .header {
+  @include xl {
+    // grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr
+  }
 
   nav {
-    display: flex;
+    @include nav-footer;
+    padding: 16px;
+
+    span {
+      @include font-fam;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 35px;
+      color: $heading-color;
+
+    }
   }
 
   button {
@@ -69,15 +93,17 @@ body {
     &:hover {
       background-color: $button1-hover;
     }
-
   }
 
+}
+
+.section-1 {
+
   h1 {
+    @include font-fam;
     height: 101px;
     width: 343px;
     color: $heading-color;
-    @include font-fam;
-
     font-size: 40px;
     font-weight: 800;
     margin: 26px 0;
@@ -103,6 +129,20 @@ body {
     }
   }
 
+  .opening-p {
+    @include paragraph;
+    height: 78px;
+    width: 343px;
+  }
+
+  @include xl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.main {
+
   .call-to-action-text {
     border-radius: 10px;
     color: $white;
@@ -118,20 +158,28 @@ body {
       line-height: 32px;
       letter-spacing: 0px;
     }
+
+    @include xl {
+      height: 322px;
+      width: 350px;
+      border-radius: 15px;
+
+      & p {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 40px;
+
+      }
+
+    }
   }
 
-  .opening-p {
-    @include paragraph;
-    height: 78px;
-    width: 343px;
-  }
-}
-
-.main {
   ul {
     list-style: none;
 
-    li {
+  
+
+    & .common {
       margin: 40px 0;
 
       padding: 28px;
@@ -157,13 +205,29 @@ body {
         margin-top: 24px
       }
     }
+
+    @include xl {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      & .common {
+        height: 322px;
+        width: 350px;
+        border-radius: 15px;
+
+      }
+    }
   }
 }
 
+
 footer {
+  @include nav-footer;
+  align-items: center;
   background-color: $heading-color;
+  padding: 36px 16px;
   height: 120px;
-  width: 359px;
+  width: auto;
   border-radius: 0px;
   color: $white;
 

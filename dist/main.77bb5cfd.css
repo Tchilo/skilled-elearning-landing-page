@@ -41,29 +41,50 @@ table {
   border-spacing: 0;
 }
 
-body {
+.body {
   background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 40px;
   padding: 16px;
 }
-body p {
+.body p {
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
-body h2 {
+.body h2 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 25px;
   letter-spacing: 0px;
 }
+@media (min-width: 1440px) {
+  .body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
 
+@media (min-width: 1440px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .header nav {
   display: flex;
+  width: auto;
+  justify-content: space-between;
+  padding: 16px;
+}
+.header nav span {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 35px;
+  color: #13183F;
 }
 .header button {
   background: #13183F;
@@ -75,17 +96,18 @@ body h2 {
 .header button:hover {
   background-color: rgb(102, 108, 163);
 }
-.header h1 {
+
+.section-1 h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
   height: 101px;
   width: 343px;
   color: #13183F;
-  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 40px;
   font-weight: 800;
   margin: 26px 0;
   line-height: 50.4px;
 }
-.header .started {
+.section-1 .started {
   background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
   color: #fff;
   padding: 9px 24px 11px;
@@ -94,38 +116,23 @@ body h2 {
   border-radius: 31.5px;
   margin: 24px 0;
 }
-.header .started:hover {
+.section-1 .started:hover {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
   color: #fff;
   padding: 9px 24px 11px;
   border-radius: 28px;
   border: none;
 }
-.header .image {
+.section-1 .image {
   height: 329.9333496094px;
   width: 238.7231140137px;
 }
-.header .image img {
+.section-1 .image img {
   height: 329.9333496094px;
 }
-.header .call-to-action-text {
-  border-radius: 10px;
-  color: #fff;
-  height: 120px;
-  width: 343px;
-  padding: 24px;
-  background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
-}
-.header .call-to-action-text p {
+.section-1 .opening-p {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 32px;
-  letter-spacing: 0px;
-}
-.header .opening-p {
   color: #83869A;
-  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -134,11 +141,44 @@ body h2 {
   height: 78px;
   width: 343px;
 }
+@media (min-width: 1440px) {
+  .section-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
+.main .call-to-action-text {
+  border-radius: 10px;
+  color: #fff;
+  height: 120px;
+  width: 343px;
+  padding: 24px;
+  background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+}
+.main .call-to-action-text p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+@media (min-width: 1440px) {
+  .main .call-to-action-text {
+    height: 322px;
+    width: 350px;
+    border-radius: 15px;
+  }
+  .main .call-to-action-text p {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 40px;
+  }
+}
 .main ul {
   list-style: none;
 }
-.main ul li {
+.main ul .common {
   margin: 40px 0;
   padding: 28px;
   background: #fff;
@@ -146,12 +186,12 @@ body h2 {
   width: 343px;
   border-radius: 10px;
 }
-.main ul li h2 {
+.main ul .common h2 {
   color: #13183F;
 }
-.main ul li p {
-  color: #83869A;
+.main ul .common p {
   font-family: "Plus Jakarta Sans", sans-serif;
+  color: #83869A;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -160,16 +200,32 @@ body h2 {
   height: 78px;
   width: 286px;
 }
-.main ul li span {
+.main ul .common span {
   color: #F74780;
   display: inline-block;
   margin-top: 24px;
 }
+@media (min-width: 1440px) {
+  .main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .main ul .common {
+    height: 322px;
+    width: 350px;
+    border-radius: 15px;
+  }
+}
 
 footer {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  align-items: center;
   background-color: #13183F;
+  padding: 36px 16px;
   height: 120px;
-  width: 359px;
+  width: auto;
   border-radius: 0px;
   color: #fff;
 }
