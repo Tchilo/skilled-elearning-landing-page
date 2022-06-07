@@ -20,6 +20,11 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+@mixin grid($columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+}
+
 @mixin paragraph {
   @include font-fam;
   color: $card-p;
@@ -126,6 +131,13 @@
 
     & img {
       height: 329.933349609375px;
+    
+    }
+
+    & .img {
+      @include md {
+        content: url("./assets/image-hero-tablet.png");
+      }
     }
   }
 
@@ -159,6 +171,13 @@
       letter-spacing: 0px;
     }
 
+    @include md {
+      height: 259px;
+      width: 339px;
+      border-radius: 10px;
+
+    }
+
     @include xl {
       height: 322px;
       width: 350px;
@@ -175,10 +194,6 @@
   }
 
   ul {
-    list-style: none;
-
-  
-
     & .common {
       margin: 40px 0;
 
@@ -206,15 +221,23 @@
       }
     }
 
+    @include md {
+      @include grid(2);
+      gap: 0 0;
+      & .common {
+        height: 259px;
+        width: 340px;
+        border-radius: 10px;
+      }
+    }
+
     @include xl {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      @include grid(3);
 
       & .common {
         height: 322px;
         width: 350px;
         border-radius: 15px;
-
       }
     }
   }

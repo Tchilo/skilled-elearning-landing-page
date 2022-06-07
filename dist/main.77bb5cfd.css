@@ -130,6 +130,11 @@ table {
 .section-1 .image img {
   height: 329.9333496094px;
 }
+@media (min-width: 768px) {
+  .section-1 .image .img {
+    content: url("/image-hero-tablet.7503113c.png");
+  }
+}
 .section-1 .opening-p {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #83869A;
@@ -163,6 +168,13 @@ table {
   line-height: 32px;
   letter-spacing: 0px;
 }
+@media (min-width: 768px) {
+  .main .call-to-action-text {
+    height: 259px;
+    width: 339px;
+    border-radius: 10px;
+  }
+}
 @media (min-width: 1440px) {
   .main .call-to-action-text {
     height: 322px;
@@ -174,9 +186,6 @@ table {
     font-weight: 800;
     line-height: 40px;
   }
-}
-.main ul {
-  list-style: none;
 }
 .main ul .common {
   margin: 40px 0;
@@ -205,10 +214,22 @@ table {
   display: inline-block;
   margin-top: 24px;
 }
+@media (min-width: 768px) {
+  .main ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 0;
+  }
+  .main ul .common {
+    height: 259px;
+    width: 340px;
+    border-radius: 10px;
+  }
+}
 @media (min-width: 1440px) {
   .main ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
   .main ul .common {
     height: 322px;
