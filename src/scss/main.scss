@@ -125,6 +125,10 @@
     }
   }
 
+  .tablet-img, .desktop-img{
+    display: none;
+  }
+
   .image {
     height: 329.933349609375px;
     width: 238.72311401367188px;
@@ -134,11 +138,25 @@
     
     }
 
-    & .img {
       @include md {
-        content: url("./assets/image-hero-tablet.png");
+        .img {
+          display: none;
+        }
+
+        .tablet-img {
+          display: block;
+        }
       }
-    }
+
+      @include xl {
+        .tablet-img {
+          display: none;
+        }
+
+        .desktop-img{
+          display: block;
+        }
+      }
   }
 
   .opening-p {

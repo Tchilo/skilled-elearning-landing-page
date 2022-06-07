@@ -123,6 +123,9 @@ table {
   border-radius: 28px;
   border: none;
 }
+.section-1 .tablet-img, .section-1 .desktop-img {
+  display: none;
+}
 .section-1 .image {
   height: 329.9333496094px;
   width: 238.7231140137px;
@@ -132,7 +135,18 @@ table {
 }
 @media (min-width: 768px) {
   .section-1 .image .img {
-    content: url("/image-hero-tablet.7503113c.png");
+    display: none;
+  }
+  .section-1 .image .tablet-img {
+    display: block;
+  }
+}
+@media (min-width: 1440px) {
+  .section-1 .image .tablet-img {
+    display: none;
+  }
+  .section-1 .image .desktop-img {
+    display: block;
   }
 }
 .section-1 .opening-p {
