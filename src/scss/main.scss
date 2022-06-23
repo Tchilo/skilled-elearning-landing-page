@@ -12,10 +12,6 @@
   border: none;
 }
 
-// * {
-//   outline: solid 1px red;
-// }
-
 @mixin font-fam {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
@@ -36,51 +32,61 @@
 
 }
 
+@mixin body-space {
+  padding: 0 16px;
+
+  @include md {
+    padding: 0 36px;
+  }
+
+  @include lg {
+    padding: 0 8rem;
+  }
+
+  @include xl {
+    padding: 0 10rem;
+  }
+}
+
 @mixin nav-footer {
   display: flex;
-  width: auto;
   justify-content: space-between;
 }
 
-.body {
-  background: $background-c;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-row-gap: 40px;
-  padding: 16px;
+@mixin footer-nav {
+  padding: 36px 16px;
 
-  p {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 26px;
-    @include font-fam;
-
+  @include md {
+    padding: 36px 39px;
   }
-
-  h2 {
-    @include font-fam;
-
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 25px;
-    letter-spacing: 0px;
+  @include lg {
+    padding:36px 8rem;
   }
-
   @include xl {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    padding: 36px 165px;
   }
 }
 
-.header {
-  @include xl {
-    // grid-column: 1 / -1;
-    grid-template-columns: 1fr 1fr
-  }
+* {
+  // outline: solid red 1px;
+}
 
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: $background-c;
+  overflow-x: hidden;
+}
+
+
+.header {
   nav {
+    @include body-space;
+    padding-top: 16px;
     @include nav-footer;
-    padding: 16px;
+
+    @include md {
+      padding-top: 24px;
+    }
 
     span {
       @include font-fam;
@@ -94,15 +100,43 @@
 
   button {
     @include button($heading-color);
+    font-size: 16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-weight: 700;
+    padding: 11px 24px;
 
     &:hover {
       background-color: $button1-hover;
+      cursor: pointer;
     }
   }
 
 }
 
 .section-1 {
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10%;
+  position: relative;
+  overflow: hidden;
+
+  .desktop-img,
+  .tablet-img {
+    display: none;
+  }
+
+  .heading {
+    @include body-space;
+
+    @include md {
+      flex-basis: 54%;
+    }
+
+    @include xl {
+      max-width: 900px;
+    }
+  }
 
   h1 {
     @include font-fam;
@@ -113,75 +147,147 @@
     font-weight: 800;
     margin: 26px 0;
     line-height: 50.4px;
+
+    @include xl {
+      margin: 180px 0 40px;
+      font-size: 56px;
+      line-height: 70.56px;
+      width: auto
+    }
   }
 
   .started {
     @include button($gradient-bg);
     border-radius: 31.5px;
+    padding: 15px 37px;
+    font-weight: 700;
     margin: 24px 0;
+    font-size: 16px;
 
     &:hover {
-      @include button($button2-hover);
+      background: $button2-hover;
+      cursor: pointer;
     }
-  }
 
-  .tablet-img, .desktop-img{
-    display: none;
+    @include xl {
+      font-size: 18px;
+    }
   }
 
   .image {
-    height: 329.933349609375px;
-    width: 238.72311401367188px;
+    width: 100%;
 
-    & img {
-      height: 329.933349609375px;
-    
+    img {
+      width: 100%;
     }
 
-      @include md {
-        .img {
-          display: none;
-        }
+    @include md {
+      width: 100%;
 
-        .tablet-img {
-          display: block;
-        }
+      .mobile-img {
+        display: none;
       }
 
-      @include xl {
-        .tablet-img {
-          display: none;
-        }
-
-        .desktop-img{
-          display: block;
-        }
+      .mb-img {
+        display: none;
       }
+    }
+
+
+    @include xl {
+      width: max-content;
+
+      .mb-img,
+      .tablet-img {
+        display: none;
+      }
+
+      .desktop-img {
+        display: block;
+        position: absolute;
+        width: 41.5rem;
+        overflow: hidden;
+        object-fit: contain;
+        right: -0.65rem;
+        top: -169px;
+      }
+    }
+
   }
 
   .opening-p {
     @include paragraph;
-    height: 78px;
-    width: 343px;
+    max-width: 560px;
+
+    @include xl {
+      font-size: 18px;
+      margin-top: 59px;
+    }
+
+  }
+
+  @include md {
+    max-width: none;
+    margin-bottom: 0;
+    height: 539px;
+    align-items: center;
+
+
+    .image {
+      width: auto;
+    }
+
+    .desktop-img,
+    .mobile-img {
+      display: none;
+    }
+
+    .tablet-img {
+      display: block;
+      position: absolute;
+      height: 42rem;
+      width: 41.5rem;
+      overflow: hidden;
+      object-fit: contain;
+      right: -17.65rem;
+      top: -136px;
+    }
+
+    flex-direction: row;
   }
 
   @include xl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    width: auto;
+    margin-bottom: 0%;
+    height: 727px;
+    .image {
+      & img{
+        width: auto;
+      }
+    }
   }
+
 }
 
 .main {
 
+  .call-to-action-li {
+    margin: 40px 0;
+
+    @include md {
+      width: auto;
+    }
+
+  }
+
   .call-to-action-text {
     border-radius: 10px;
     color: $white;
-    height: 120px;
-    width: 343px;
     padding: 24px;
     background: $gradient-bg;
 
-    & p {
+    p {
       @include font-fam;
       font-size: 24px;
       font-weight: 800;
@@ -193,11 +299,10 @@
       height: 259px;
       width: 339px;
       border-radius: 10px;
-
     }
 
     @include xl {
-      height: 322px;
+      height: 300px;
       width: 350px;
       border-radius: 15px;
 
@@ -212,38 +317,57 @@
   }
 
   ul {
+    display: flex;
+    flex-direction: column;
+    @include body-space;
+
     & .common {
       margin: 40px 0;
-
       padding: 28px;
       background: $white;
-      height: 259px;
-      width: 343px;
       border-radius: 10px;
 
       h2 {
+        @include font-fam;
+        font-weight: 800;
+        font-size: 1.5em;
         color: $card-h2;
+        margin: 1.5rem 0;
       }
 
       p {
         @include paragraph;
         height: 78px;
-        width: 286px;
-
+        max-width: 350px;
+        margin-bottom: 1rem;
+        @include xl {
+          font-size: 18px;
+        }
+    
       }
 
       span {
         color: $get-started-text;
         display: inline-block;
-        margin-top: 24px
+        margin-top: 24px;
+        font-weight: 700;
+
+        &:hover {
+          color: $get-started-text-hover;
+          cursor: pointer;
+        }
       }
+
+    }
+
+    .icon {
+      margin-top: -56px;
     }
 
     @include md {
       @include grid(2);
-      gap: 0 0;
+
       & .common {
-        height: 259px;
         width: 340px;
         border-radius: 10px;
       }
@@ -251,11 +375,16 @@
 
     @include xl {
       @include grid(3);
+      grid-column-gap: 40px;
 
       & .common {
-        height: 322px;
+        height: 300px;
         width: 350px;
         border-radius: 15px;
+      }
+
+      h2 {
+        margin: 2.5rem 0;
       }
     }
   }
@@ -263,22 +392,20 @@
 
 
 footer {
-  @include nav-footer;
-  align-items: center;
   background-color: $heading-color;
-  padding: 36px 16px;
-  height: 120px;
-  width: auto;
-  border-radius: 0px;
+  // padding: 36px 16px;
+  @include footer-nav;
   color: $white;
+
+  .d-flex {
+    @include nav-footer;
+  }
 
   span {
     @include font-fam;
     font-size: 28px;
     font-weight: 800;
     line-height: 35px;
-    letter-spacing: 0px;
-
   }
 
   button {
@@ -286,7 +413,9 @@ footer {
 
     &:hover {
       @include button($footer-btn-hover);
+      cursor: pointer;
     }
 
   }
+
 }
