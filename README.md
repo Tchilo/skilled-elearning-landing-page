@@ -9,7 +9,7 @@
 ## See Live 
 [click here!](https://skill-elearning.netlify.app/)
 
-
+## Screenshots
 > | Phone | Tablet |
 > |--------------|----------------|
 > |<img height="500" src="./src/assets/phone.png">|<img height="500" src="./src/assets/tablet.png">|
