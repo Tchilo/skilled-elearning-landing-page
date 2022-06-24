@@ -1,19 +1,421 @@
-$heading-color: #13183F;
-$text-color: #83869A;
-$white: #fff;
+@use 'colors' as *;
+@use 'reset' as *;
+@use 'breakpoints' as *;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
 
-.header{
 
+@mixin button($color) {
+  background: $color;
+  color: $white;
+  padding: 9px 24px 11px;
+  border-radius: 28px;
+  border: none;
+}
+
+@mixin font-fam {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@mixin grid($columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+}
+
+@mixin paragraph {
+  @include font-fam;
+  color: $card-p;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
+@mixin body-space {
+  padding: 0 16px;
+
+  @include md {
+    padding: 0 36px;
+  }
+
+  @include lg {
+    padding: 0 8rem;
+  }
+
+  @include xl {
+    padding: 0 10rem;
+  }
+}
+
+@mixin nav-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin footer-nav {
+  padding: 36px 16px;
+
+  @include md {
+    padding: 36px 39px;
+  }
+  @include lg {
+    padding:36px 8rem;
+  }
+  @include xl {
+    padding: 36px 165px;
+  }
+}
+
+* {
+  // outline: solid red 1px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: $background-c;
+  overflow-x: hidden;
+}
+
+
+.header {
   nav {
-    display: flex;
-    
+    @include body-space;
+    padding-top: 16px;
+    @include nav-footer;
+
+    @include md {
+      padding-top: 24px;
+    }
+
+    span {
+      @include font-fam;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 35px;
+      color: $heading-color;
+
+    }
   }
 
   button {
-    background:$heading-color;
-    color: $white;
-    padding:9px 24px 11px ;
-    border-radius: 28px;
-    border: none;
+    @include button($heading-color);
+    font-size: 16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-weight: 700;
+    padding: 11px 24px;
+
+    &:hover {
+      background-color: $button1-hover;
+      cursor: pointer;
+    }
   }
+
+}
+
+.section-1 {
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10%;
+  position: relative;
+  overflow: hidden;
+
+  .desktop-img,
+  .tablet-img {
+    display: none;
+  }
+
+  .heading {
+    @include body-space;
+
+    @include md {
+      flex-basis: 54%;
+    }
+
+    @include xl {
+      max-width: 900px;
+    }
+  }
+
+  h1 {
+    @include font-fam;
+    height: 101px;
+    width: 343px;
+    color: $heading-color;
+    font-size: 40px;
+    font-weight: 800;
+    margin: 26px 0;
+    line-height: 50.4px;
+
+    @include xl {
+      margin: 180px 0 40px;
+      font-size: 56px;
+      line-height: 70.56px;
+      width: auto
+    }
+  }
+
+  .started {
+    @include button($gradient-bg);
+    border-radius: 31.5px;
+    padding: 15px 37px;
+    font-weight: 700;
+    margin: 24px 0;
+    font-size: 16px;
+
+    &:hover {
+      background: $button2-hover;
+      cursor: pointer;
+    }
+
+    @include xl {
+      font-size: 18px;
+    }
+  }
+
+  .image {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+
+    @include md {
+      width: 100%;
+
+      .mobile-img {
+        display: none;
+      }
+
+      .mb-img {
+        display: none;
+      }
+    }
+
+
+    @include xl {
+      width: max-content;
+
+      .mb-img,
+      .tablet-img {
+        display: none;
+      }
+
+      .desktop-img {
+        display: block;
+        position: absolute;
+        width: 41.5rem;
+        overflow: hidden;
+        object-fit: contain;
+        right: -0.65rem;
+        top: -169px;
+      }
+    }
+
+  }
+
+  .opening-p {
+    @include paragraph;
+    max-width: 560px;
+
+    @include xl {
+      font-size: 18px;
+      margin-top: 59px;
+    }
+
+  }
+
+  @include md {
+    max-width: none;
+    margin-bottom: 0;
+    height: 539px;
+    align-items: center;
+
+
+    .image {
+      width: auto;
+    }
+
+    .desktop-img,
+    .mobile-img {
+      display: none;
+    }
+
+    .tablet-img {
+      display: block;
+      position: absolute;
+      height: 42rem;
+      width: 41.5rem;
+      overflow: hidden;
+      object-fit: contain;
+      right: -17.65rem;
+      top: -136px;
+    }
+
+    flex-direction: row;
+  }
+
+  @include xl {
+    align-items: flex-start;
+    width: auto;
+    margin-bottom: 0%;
+    height: 727px;
+    .image {
+      & img{
+        width: auto;
+      }
+    }
+  }
+
+}
+
+.main {
+
+  .call-to-action-li {
+    margin: 40px 0;
+
+    @include md {
+      width: auto;
+    }
+
+  }
+
+  .call-to-action-text {
+    border-radius: 10px;
+    color: $white;
+    padding: 24px;
+    background: $gradient-bg;
+
+    p {
+      @include font-fam;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 32px;
+      letter-spacing: 0px;
+    }
+
+    @include md {
+      height: 259px;
+      width: 339px;
+      border-radius: 10px;
+    }
+
+    @include xl {
+      height: 300px;
+      width: 350px;
+      border-radius: 15px;
+
+      & p {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 40px;
+
+      }
+
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    @include body-space;
+
+    & .common {
+      margin: 40px 0;
+      padding: 28px;
+      background: $white;
+      border-radius: 10px;
+
+      h2 {
+        @include font-fam;
+        font-weight: 800;
+        font-size: 1.5em;
+        color: $card-h2;
+        margin: 1.5rem 0;
+      }
+
+      p {
+        @include paragraph;
+        height: 78px;
+        max-width: 350px;
+        margin-bottom: 1rem;
+        @include xl {
+          font-size: 18px;
+        }
+    
+      }
+
+      span {
+        color: $get-started-text;
+        display: inline-block;
+        margin-top: 24px;
+        font-weight: 700;
+
+        &:hover {
+          color: $get-started-text-hover;
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    .icon {
+      margin-top: -56px;
+    }
+
+    @include md {
+      @include grid(2);
+
+      & .common {
+        width: 340px;
+        border-radius: 10px;
+      }
+    }
+
+    @include xl {
+      @include grid(3);
+      grid-column-gap: 40px;
+
+      & .common {
+        height: 300px;
+        width: 350px;
+        border-radius: 15px;
+      }
+
+      h2 {
+        margin: 2.5rem 0;
+      }
+    }
+  }
+}
+
+
+footer {
+  background-color: $heading-color;
+  // padding: 36px 16px;
+  @include footer-nav;
+  color: $white;
+
+  .d-flex {
+    @include nav-footer;
+  }
+
+  span {
+    @include font-fam;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 35px;
+  }
+
+  button {
+    @include button($footer-btn);
+
+    &:hover {
+      @include button($footer-btn-hover);
+      cursor: pointer;
+    }
+
+  }
+
 }
